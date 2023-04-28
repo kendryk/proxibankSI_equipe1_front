@@ -1,7 +1,41 @@
-<p>client-container works!</p>
+<!-- <p>client-container works!</p>
 
 <ol class="list-group">
    
     <li  *ngFor="let client of allClients"> {{client.name}}</li>
 
-</ol>
+</ol> -->
+<div class="container">
+
+    <h1>Bonjour Mr Dupont </h1>
+    <div class="mt-3">
+        <button class="btn btn-success" type="button"> Nouveaux Client</button>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4 mb-2">
+            <div class="card card-box-shadow">
+                <div class="card-body">
+                    <div class="card-header">
+                        Liste de Clients
+                    </div>
+                    <app-client-list></app-client-list>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 mb-2">
+            <div class="card card-box-shadow">
+                <div class="card-body">
+                    <app-client-detail></app-client-detail>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
