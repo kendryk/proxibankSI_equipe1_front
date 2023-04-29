@@ -57,7 +57,7 @@
                     <ng-template #zipCodeErrors>
                         <div *ngIf="clientForm.get('zipCode').hasError('required')">Veuillez saisir un code
                             postal</div>
-                        <div *ngIf="clientForm.get('zipCode').hasError('maxLength')">Le code postal ne doit pas
+                        <div *ngIf="clientForm.get('zipCode').hasError('maxlength')">Le code postal ne doit pas
                             dépasser 5 chiffres</div>
                         <div *ngIf="clientForm.get('zipCode').hasError('pattern')">Le code postal ne doit contenir que
                             des chiffres</div>
