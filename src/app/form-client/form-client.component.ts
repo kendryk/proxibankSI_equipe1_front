@@ -54,10 +54,14 @@ export class FormClientComponent {
         Validators.maxLength(5),
         Validators.pattern(/^\d+$/),
       ]),
+      // vérifie que la chaîne de caractères saisie dans le champ de saisie de ville
+      // correspond à un format spécifique, permettant uniquement des lettres alphabétiques 
+      // (majuscules ou minuscules), avec un tiret ou un espace optionnel entre les mots et 
+      // sans se terminer par un espace ou un tiret.
       city: new FormControl(null, [
         Validators.required,
         Validators.minLength(3),
-        Validators.pattern(/^[A-Za-z]+$/),
+        Validators.pattern(/^([A-Za-z]+[-\s]?)+[A-Za-z]$/),
       ]),
       phone: new FormControl(null, [
         Validators.required,
