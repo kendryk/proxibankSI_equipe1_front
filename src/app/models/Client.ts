@@ -1,3 +1,5 @@
+import { Account } from './Account';
+
 export class Client {
   constructor(
     public _id: number,
@@ -6,7 +8,8 @@ export class Client {
     public firstName: string,
     public name: string,
     public phone: string,
-    public zip_code: string,
-    public owner_id: number
+    public zipCode: string,
+    public owner_id: number,
+    public accountList: Array<Account>
   ) {}
 }
