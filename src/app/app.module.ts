@@ -11,6 +11,9 @@ import { ROUTING } from './app.routing';
 import { ClientRowComponent } from './client-container/client-list/client-row/client-row.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountStatusTranslationPipe } from './pipes/account-status-translation.pipe';
+import { FormClientComponent } from './form-client/form-client.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +25,15 @@ import { AccountStatusTranslationPipe } from './pipes/account-status-translation
     ClientDetailComponent,
     ClientRowComponent,
     AccountStatusTranslationPipe,
+    FormClientComponent,
+
   ],
-  imports: [BrowserModule, ROUTING, HttpClientModule],
+  imports: [
+    BrowserModule, 
+    FormsModule,
+    ReactiveFormsModule, 
+    ROUTING, 
+    HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
