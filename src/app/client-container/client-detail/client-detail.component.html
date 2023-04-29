@@ -24,12 +24,13 @@
         </div>
       </div>
     </div>
+    
     <hr />
 
     <div class="d-flex align-items-center justify-content-between mb-2">
       <div class="col-6 d-flex align-items-center justify-content-around">
         <button class="btn btn-success">Comptes</button>
-        <button class="btn btn-primary">Edit</button>
+        <button (click)="goToEditClient(clientSelected.id)" class="btn btn-primary">Edit</button>
       </div>
       <div class="col-2">
         <button class="btn btn-danger">Delete</button>
