@@ -1,5 +1,8 @@
 <ul class="list-group list-group-flush">
-
-   <app-client-row *ngFor="let client of allClients" [oneClient]="client"></app-client-row>
-
+  <!-- le client row output renvoie dans le clientToList  qui va renvoyer -->
+  <app-client-row
+    (clientToList)="sendClientToContainer($event)"
+    *ngFor="let client of allClients"
+    [oneClient]="client"
+  ></app-client-row>
 </ul>

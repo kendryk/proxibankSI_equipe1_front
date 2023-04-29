@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ListClientsConseillerService {
- 
   constructor(private http: HttpClient) {}
 
   link = 'http://localhost:8080/advisors';

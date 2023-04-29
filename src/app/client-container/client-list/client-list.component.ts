@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ListClientsConseillerService } from 'src/app/services/list-clients-conseiller.service';
 import { Client } from 'src/app/models/Client';
 import { ActivatedRoute } from '@angular/router';
@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./client-list.component.css'],
 })
 export class ClientListComponent {
+  @Output() clientToContainer = new EventEmitter();
   allClients: Client[] = [];
   constructor(
     private serviceListClient: ListClientsConseillerService,
@@ -25,6 +26,9 @@ export class ClientListComponent {
         console.log(err);
       },
     });
+  }
+  sendClientToContainer(client: Client) {
+    this.clientToContainer.emit(client);
   }
 }
 //implement ondestroy

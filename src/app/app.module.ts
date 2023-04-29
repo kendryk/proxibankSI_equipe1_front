@@ -10,6 +10,7 @@ import { ClientDetailComponent } from './client-container/client-detail/client-d
 import { ROUTING } from './app.routing';
 import { ClientRowComponent } from './client-container/client-list/client-row/client-row.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountStatusTranslationPipe } from './pipes/account-status-translation.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     ClientListComponent,
     ClientDetailComponent,
     ClientRowComponent,
+    AccountStatusTranslationPipe,
   ],
   imports: [BrowserModule, ROUTING, HttpClientModule],
   providers: [],

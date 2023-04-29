@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Client } from '../models/Client';
 
 @Component({
   selector: 'app-client-container',
@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./client-container.component.css'],
 })
 export class ClientContainerComponent {
-  
-  constructor(
-   
-    ){};
+  selectedClient!: Client;
+  constructor() {}
 
-
- 
+  getSelectedClient(client: Client) {
+    this.selectedClient = client;
+  }
 }
