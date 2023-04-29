@@ -1,0 +1,109 @@
+<div class="container">
+    <h1>{{ isEditing ? "Modification du client" : "Ajout d'un nouveau client" }}</h1>
+    <div class="card card-box-shadow">
+        <div class="card-body">
+            <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+
+                <input formControlName="id" type="hidden" [value]="clientId">
+
+                <label>Nom</label>
+                <input formControlName="name" type="text" class="form-control">
+                <div  class="text-danger" *ngIf="clientForm.get('name').invalid && clientForm.get('name').touched">
+                    <ng-template #nameErrors>
+                        <div *ngIf="clientForm.get('name').hasError('required')">Veuillez saisir un nom</div >
+                        <div *ngIf="clientForm.get('name').hasError('minlength')">Le nom doit comporter au moins 4
+                            caractères </div >
+                        <div *ngIf="clientForm.get('name').hasError('pattern')">Le nom ne doit contenir que des lettres
+                            alphabétiques</div >
+                    </ng-template>
+                    <ng-container *ngTemplateOutlet="nameErrors"></ng-container>
+                </div >
+
+                <br />
+
+                <label for="firstName">Prénom</label>
+                <input formControlName="firstName" type="text" class="form-control" id="firstName">
+
+                <div class="text-danger"
+                    *ngIf="clientForm.get('firstName').invalid && clientForm.get('firstName').touched">
+                    <ng-template #firstNameErrors>
+                        <div *ngIf="clientForm.get('firstName').hasError('required')">Veuillez saisir un prénom</div>
+                        <div *ngIf="clientForm.get('firstName').hasError('minlength')">Le prénom doit comporter au
+                            moins 4 caractères</div>
+                        <div *ngIf="clientForm.get('firstName').hasError('pattern')">Le prénom ne doit contenir que des
+                            lettres alphabétiques</div>
+                    </ng-template>
+                    <ng-container *ngTemplateOutlet="firstNameErrors"></ng-container>
+                </div>
+
+                <br />
+                <label for="adress">Adresse</label>
+                <input formControlName="adress" type="text" class="form-control" id="adress">
+                <div class="text-danger" *ngIf="clientForm.get('adress').invalid && clientForm.get('adress').touched">
+                    <ng-template #adressErrors>
+                        <div *ngIf="clientForm.get('adress').hasError('required')">Veuillez saisir une adresse</div>
+                        <div *ngIf="clientForm.get('adress').hasError('minlength')">L'adresse doit comporter au moins 4
+                            caractères</div>
+                    </ng-template>
+                    <ng-container *ngTemplateOutlet="adressErrors"></ng-container>
+                </div>
+
+                <br />
+
+                <label for="zipCode">Code postal</label>
+                <input formControlName="zipCode" type="text" class="form-control" id="zipCode">
+                <div class="text-danger"
+                    *ngIf="clientForm.get('zipCode').invalid && clientForm.get('zipCode').touched">
+                    <ng-template #zipCodeErrors>
+                        <div *ngIf="clientForm.get('zipCode').hasError('required')">Veuillez saisir un code
+                            postal</div>
+                        <div *ngIf="clientForm.get('zipCode').hasError('maxLength')">Le code postal ne doit pas
+                            dépasser 5 chiffres</div>
+                        <div *ngIf="clientForm.get('zipCode').hasError('pattern')">Le code postal ne doit contenir que
+                            des chiffres</div>
+                    </ng-template>
+                    <ng-container *ngTemplateOutlet="zipCodeErrors"></ng-container>
+                </div>
+
+                <br />
+
+                <label for="city">Ville</label>
+                <input formControlName="city" type="text" class="form-control" id="city">
+                <div class="text-danger" *ngIf="clientForm.get('city').invalid && clientForm.get('city').touched">
+                    <ng-template #cityCodeErrors>
+                        <div *ngIf="clientForm.get('city').hasError('required')">Veuillez saisir une ville</div>
+                        <div *ngIf="clientForm.get('city').hasError('minlength')">Le nom de la ville doit comporter au
+                            moins 3 caractères</div>
+                        <div *ngIf="clientForm.get('city').hasError('pattern')">Le nom de la ville doit contenir
+                            uniquement des lettres alphabétiques</div>
+                    </ng-template>
+                    <ng-container *ngTemplateOutlet="cityCodeErrors"></ng-container>
+                </div>
+
+                <br />
+
+                <label for="phone">N° Téléphone</label>
+                <input formControlName="phone" type="text" class="form-control" id="phone">
+                <div class="text-danger" *ngIf="clientForm.get('phone').invalid && clientForm.get('phone').touched">
+                    <ng-template #phoneCodeErrors>
+                        <div *ngIf="clientForm.get('phone').hasError('required')">Veuillez saisir
+                            un numéro de téléphone</div>
+                        <div *ngIf="clientForm.get('phone').hasError('maxlength')">Le numéro de téléphone doit
+                            comporter au maximum 10 chiffres</div>
+                        <div *ngIf="clientForm.get('phone').hasError('pattern')">Le numéro de téléphone ne doit
+                            contenir que des chiffres</div>
+                    </ng-template>
+                    <ng-container *ngTemplateOutlet="phoneCodeErrors"></ng-container>
+                </div>
+
+                <br />
+
+                <div class="d-flex align-items-center justify-content-between">
+                    <button (click)="backToClients()" type="button" class="btn btn-light">Retour</button>
+                    <button [disabled]="!clientForm.valid" type="submit" class="btn btn-primary">{{ isEditing ? 'Modifier' : 'Ajouter' }} </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
