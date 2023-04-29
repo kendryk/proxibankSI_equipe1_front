@@ -1,4 +1,7 @@
 export class Client {
+
+  // TODO attention il y a eu des modification dans les noms des attributs voir si cela fonctionne
+  
   constructor(
     public id: number,
     public adress: string,
