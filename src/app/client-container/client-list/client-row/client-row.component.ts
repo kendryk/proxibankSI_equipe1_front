@@ -10,9 +10,6 @@ export class ClientRowComponent {
   @Input() oneClient!: Client;
   @Output() clientToList = new EventEmitter();
 
-  ngOnInit() {
-    console.log(this.oneClient);
-  }
   sendClientToList() {
     this.clientToList.emit(this.oneClient);
   }
