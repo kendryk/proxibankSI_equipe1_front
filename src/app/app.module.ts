@@ -10,6 +10,9 @@ import { ClientDetailComponent } from './client-container/client-detail/client-d
 import { ROUTING } from './app.routing';
 import { ClientRowComponent } from './client-container/client-list/client-row/client-row.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormClientComponent } from './form-client/form-client.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,8 +23,15 @@ import { HttpClientModule } from '@angular/common/http';
     ClientListComponent,
     ClientDetailComponent,
     ClientRowComponent,
+    FormClientComponent,
+
   ],
-  imports: [BrowserModule, ROUTING, HttpClientModule],
+  imports: [
+    BrowserModule, 
+    FormsModule,
+    ReactiveFormsModule, 
+    ROUTING, 
+    HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
