@@ -24,7 +24,7 @@ footer p {
 footer a {
   flex: 1 1 100%;
   text-align: center;
-  order: 2;
+  order: 1;
 }
 
 footer ul {
