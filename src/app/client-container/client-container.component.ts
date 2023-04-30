@@ -7,10 +7,11 @@ import { Client } from '../models/Client';
   styleUrls: ['./client-container.component.css'],
 })
 export class ClientContainerComponent {
-  selectedClient!: Client;
+  selectedClient!: Client ;
   constructor() {}
 
   getSelectedClient(client: Client) {
     this.selectedClient = client;
   }
+
 }

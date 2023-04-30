@@ -10,19 +10,22 @@ import { ListClientsConseillerService } from 'src/app/services/list-clients-cons
 })
 export class ClientDetailComponent {
   @Input() clientSelected!: Client;
-
   selectedClient!: Client;
+  
 
   constructor(
     private clientService: ListClientsConseillerService,
     private route: ActivatedRoute
   ) {}
 
-  ngOninit() {
+  ngOnInit() {
     const advisorId = this.route.snapshot.params['id'];
     console.log(this.clientService.getListClientByAdvisorId(advisorId));
   }
+  
+
   recupererSelectedClient(client: Client) {
     this.selectedClient = client;
   }
+
 }

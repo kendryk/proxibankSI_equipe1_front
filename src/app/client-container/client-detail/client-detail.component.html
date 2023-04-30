@@ -1,39 +1,46 @@
-<div class="card-container">
-  <div class="content">
+<div class="card-container" >
+  
     <div class="main">
-      <h3>{{ clientSelected.name }} {{ clientSelected.firstName }}</h3>
-      <p>
-        Adresse: {{ clientSelected.adress }}, {{ clientSelected.zipCode }}
+      <h3 class="fw-bold  bgGreen mb-1" style="font-size: 30px ">
+        {{ clientSelected.name }} {{ clientSelected.firstName }}
+      </h3>
+      <p class="acc-fs mt-2 mb-0">
+        {{ clientSelected.adress }} {{ clientSelected.zipCode }}
         {{ clientSelected.city }}
       </p>
-      <p>Numéro de téléphone: {{ clientSelected.phone }}</p>
-      <hr />
-      <div class="liste-comptes">
-        <h5>Liste des Comptes</h5>
+      <p class="acc-fs ">{{ clientSelected.phone }}</p>
+  
+      <div class="account-list">
+        <h5 class="fw-bold fontColor mt-1 mb-0">Liste des Comptes</h5>
+        <hr class="mt-0" />
         <div
           *ngFor="let account of clientSelected.accountList"
           class="type-compte"
         >
-          <p>Compte {{ account.accountStatus | accountStatusTranslation }}:</p>
-          <p>N°</p>
+          <p class="fs fw-bold mb-0">Compte {{ account.accountStatus | accountStatusTranslation }}:</p>
+          <p class="acc-fs mb-0"><span class="fw-bold">Numéro de compte:</span>  {{account.number}}</p>
+          <p class="acc-fs"><span class="fw-bold"> Solde:</span> {{account.balance}}€ </p>
         </div>
-        <hr />
+        
         <div class="summary">
-          <p>Total Epargne:</p>
-          <p>Statut Carte Bancaire : Active</p>
+          <p class="fw-bold fontColor mt-1 mb-0">Résume</p>
+          <hr class="mt-0"/>
+          <p><span class="fw-bold">Total Epargne:</span></p>
+          <p><span class="fw-bold">Statut Carte Bancaire :</span> Active</p>
         </div>
-      </div>
-    </div>
+      
+    
     <hr />
 
-    <div class="d-flex align-items-center justify-content-between mb-2">
-      <div class="col-6 d-flex align-items-center justify-content-around">
+    <div class="  d-flex align-items-center justify-content-between mb-2">
+      <div class=" col-6 d-flex align-items-center justify-content-around">
         <button class="btn btn-success">Comptes</button>
         <button class="btn btn-primary">Edit</button>
       </div>
-      <div class="col-2">
+      <div class="col-3">
         <button class="btn btn-danger">Delete</button>
       </div>
+    </div>
     </div>
   </div>
 </div>

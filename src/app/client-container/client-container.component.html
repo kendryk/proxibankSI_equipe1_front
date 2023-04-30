@@ -8,20 +8,21 @@
     <div class="col-md-4 mb-2">
       <div class="card card-box-shadow">
         <div class="card-body">
-          <div class="card-header">Liste de Clients</div>
+          <div class="card-header fw-bold h5 bgGreen">Liste de Clients</div>
           <app-client-list
             (clientToContainer)="getSelectedClient($event)"
           ></app-client-list>
         </div>
       </div>
     </div>
+<div class="col-md-2"></div>
+    <div class="col-md-6 mb-2">
 
-    <div class="col-md-8 mb-2">
-      <div class="card card-box-shadow">
-        <div class="card-body">
-          <app-client-detail
-            *ngIf="selectedClient"
-            [clientSelected]="selectedClient"
+      <div class="card card-box-shadow"*ngIf="selectedClient">
+        <div class="card-body"  >
+          <app-client-detail 
+           
+            [clientSelected]="selectedClient" 
           ></app-client-detail>
         </div>
       </div>
