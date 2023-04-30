@@ -1,9 +1,11 @@
 import { RouterModule, Routes } from "@angular/router";
 import { ClientContainerComponent } from "./client-container/client-container.component";
 import { FormClientComponent } from "./form-client/form-client.component";
+import { HomeComponent } from "./home/home.component";
 
 const myRoutes: Routes = [
   // Todo revoir les nom des id
+  { path: 'advisor/:id', component: HomeComponent},
   { path: 'advisor/:id/clients', component: ClientContainerComponent },
   { path: 'advisor/:advisorId/newClient', component: FormClientComponent },
   {

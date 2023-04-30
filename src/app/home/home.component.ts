@@ -1,30 +1,23 @@
 import { Component } from '@angular/core';
-import { Client } from '../models/Client';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Advisor } from '../models/Advisor';
+import { ActivatedRoute } from '@angular/router';
 import { AdvisorService } from '../services/advisor.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-client-container',
-  templateUrl: './client-container.component.html',
-  styleUrls: ['./client-container.component.css'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ClientContainerComponent {
+export class HomeComponent {
   advisorId: string | undefined;
-  selectedClient!: Client;
   advisor: Advisor | undefined;
   advisorSubscription!: Subscription;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private advisorService: AdvisorService
   ) {}
-
-  getSelectedClient(client: Client) {
-    this.selectedClient = client;
-  }
 
   ngOnInit() {
     this.advisorId = this.route.snapshot.params['id'];
@@ -40,11 +33,7 @@ export class ClientContainerComponent {
       });
   }
 
-  goToNewClient() {
-    this.router.navigateByUrl(`/advisor/${this.advisorId}/newClient`);
-  }
-
-  ngOnDestroy() {
+   ngOnDestroy() {
     this.advisorSubscription.unsubscribe();
   }
 }
