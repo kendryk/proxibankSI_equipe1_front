@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Client } from '../models/Client';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-container',
@@ -7,11 +8,20 @@ import { Client } from '../models/Client';
   styleUrls: ['./client-container.component.css'],
 })
 export class ClientContainerComponent {
-  selectedClient!: Client ;
-  constructor() {}
+  advisorId: string | undefined;
+  selectedClient!: Client;
+ 
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   getSelectedClient(client: Client) {
     this.selectedClient = client;
   }
 
+  ngOnInit() {
+    this.advisorId = this.route.snapshot.params['id'];
+  }
+
+  goToNewClient() {
+    this.router.navigateByUrl(`/advisor/${this.advisorId}/newClient`);
+  }
 }

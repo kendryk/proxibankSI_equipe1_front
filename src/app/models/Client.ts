@@ -1,8 +1,11 @@
 import { Account } from './Account';
 
 export class Client {
+
+  // TODO attention il y a eu des modification dans les noms des attributs voir si cela fonctionne
+  
   constructor(
-    public _id: number,
+    public id: number,
     public adress: string,
     public city: string,
     public firstName: string,

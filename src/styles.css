@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.card-box-shadow {
+  box-shadow: 10px 10px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 10px 10px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 10px 10px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.btn:hover{
+  box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5), inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
