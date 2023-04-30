@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccountStatusTranslationPipe } from './pipes/account-status-translation.pipe';
 import { FormClientComponent } from './form-client/form-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ClientRowComponent,
     AccountStatusTranslationPipe,
     FormClientComponent,
+    HomeComponent,
+ 
 
   ],
   imports: [
