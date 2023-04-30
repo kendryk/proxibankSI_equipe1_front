@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Advisor } from '../models/Advisor';
 import { AdvisorService } from '../services/advisor.service';
 import { Subscription } from 'rxjs';
-
 @Component({
   selector: 'app-client-container',
   templateUrl: './client-container.component.html',
