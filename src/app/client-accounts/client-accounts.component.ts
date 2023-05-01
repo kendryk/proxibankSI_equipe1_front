@@ -24,7 +24,7 @@ export class ClientAccountsComponent {
   ) {}
 
   ngOnInit() {
-    const advisorId = this.route.snapshot.params['id'];
+    const advisorId = this.route.snapshot.params['advisorId'];
     const clientId = this.route.snapshot.params['clientId'];
 
     this.subscription = this.listClientsConseillerService
@@ -32,6 +32,14 @@ export class ClientAccountsComponent {
       .subscribe((accounts: Account[]) => {
         this.accounts = accounts;
         console.log(accounts);
+      });
+
+    this.subscription = this.listClientsConseillerService
+      .getClientByIdByAdvisorId(clientId, advisorId)
+      .subscribe((client: Client) => {
+        this.selectedClient = client;
+        this.accounts = client.accountList;
+        console.log(client);
       });
   }
 }
