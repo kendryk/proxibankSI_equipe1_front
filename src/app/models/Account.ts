@@ -1,3 +1,4 @@
+
 export class Account {
   constructor(
     public accountNumberAsString: string,

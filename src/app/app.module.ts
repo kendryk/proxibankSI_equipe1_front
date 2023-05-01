@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { ClientAccountsComponent } from './client-accounts/client-accounts.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { NoFoundComponent } from './no-found/no-found.component';
+import { AuditComponent } from './audit/audit.component';
+
 
 
 
@@ -35,7 +37,7 @@ import { NoFoundComponent } from './no-found/no-found.component';
     ClientAccountsComponent,
     DateFormatPipe,
     NoFoundComponent,
- 
+    AuditComponent,
 
   ],
   imports: [
