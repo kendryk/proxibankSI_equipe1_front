@@ -11,6 +11,7 @@
           <div class="card-header h5 bgGreen">Liste de Clients</div>
           <app-client-list
             (clientToContainer)="getSelectedClient($event)"
+            [clientToDeleted]="clientDeleted"
           ></app-client-list>
         </div>
       </div>
@@ -21,7 +22,7 @@
       <div class="card card-box-shadow"*ngIf="selectedClient">
         <div class="card-body"  >
           <app-client-detail 
-           
+           (clientDeleted)="getdeleteClientFromDetail($event)"
             [clientSelected]="selectedClient" 
           ></app-client-detail>
         </div>

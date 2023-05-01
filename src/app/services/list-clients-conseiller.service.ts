@@ -13,7 +13,7 @@ export class ListClientsConseillerService {
   link = 'http://localhost:8080/advisors';
 
   getListClientByAdvisorId(id: string): Observable<Client[]> {
-    return this.http.get<Client[]>(`${this.link}/${id}/listClient`);
+    return this.http.get<Client[]>(`${this.link}/${id}/listClients`);
   }
 
   getClientByIdByAdvisorId(
@@ -21,7 +21,7 @@ export class ListClientsConseillerService {
     advisorId: string
   ): Observable<Client> {
     return this.http
-      .get<Client[]>(`${this.link}/${advisorId}/listClient`)
+      .get<Client[]>(`${this.link}/${advisorId}/listClients`)
       .pipe(
         map((clients: Client[]) =>
           clients.find((c: Client) => c.id === Number(clientId))
@@ -51,6 +51,12 @@ export class ListClientsConseillerService {
   ): Observable<Account[]> {
     return this.http.get<Account[]>(
       `${this.link}/${advisorId}/clients/${clientId}/${accounts}`
+    );
+  }
+
+  deleteClientByID(advisorId: string, clientId: string): Observable<Client> {
+    return this.http.delete<Client>(
+      `${this.link}/${advisorId}/deleteClient/${clientId}`
     );
   }
 }
