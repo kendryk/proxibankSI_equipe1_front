@@ -1,25 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 .card-box-shadow {
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
-  -webkit-box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
-  -moz-box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 .btn {
-  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5),
+    5px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
-.btn:hover{
-  box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5), inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+.btn:hover {
+  box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5),
+    inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary{
+.btn-primary {
   background-color: #5d586d !important;
-  border-color: #343A40 !important;
+  border-color: #343a40 !important;
 }
 
-.bgGreen{
+.bgGreen {
   background-color: #00bc77 !important;
   border-radius: 5px 5px 0px 0px;
   padding: 10px;
   color: black;
+}
+.btn-trft {
+  border: none;
+}
+.main-container {
+  height: 600px;
 }

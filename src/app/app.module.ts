@@ -15,8 +15,7 @@ import { FormClientComponent } from './form-client/form-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ClientAccountsComponent } from './client-accounts/client-accounts.component';
-
-
+import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -31,15 +30,15 @@ import { ClientAccountsComponent } from './client-accounts/client-accounts.compo
     FormClientComponent,
     HomeComponent,
     ClientAccountsComponent,
- 
-
+    DateFormatPipe,
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     FormsModule,
-    ReactiveFormsModule, 
-    ROUTING, 
-    HttpClientModule],
+    ReactiveFormsModule,
+    ROUTING,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
