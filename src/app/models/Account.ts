@@ -6,6 +6,7 @@ export class Account {
     public created: Date,
     public id: number,
     public number: string,
-    public rate: number
+    public rate: number,
+    public overdraft: number
   ) {}
 }
