@@ -15,6 +15,7 @@ import { FormClientComponent } from './form-client/form-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ClientAccountsComponent } from './client-accounts/client-accounts.component';
+import { NoFoundComponent } from './no-found/no-found.component';
 
 
 
@@ -31,6 +32,7 @@ import { ClientAccountsComponent } from './client-accounts/client-accounts.compo
     FormClientComponent,
     HomeComponent,
     ClientAccountsComponent,
+    NoFoundComponent,
  
 
   ],

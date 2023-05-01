@@ -3,6 +3,7 @@ import { ClientContainerComponent } from './client-container/client-container.co
 import { FormClientComponent } from './form-client/form-client.component';
 import { HomeComponent } from './home/home.component';
 import { ClientAccountsComponent } from './client-accounts/client-accounts.component';
+import { NoFoundComponent } from './no-found/no-found.component';
 
 const myRoutes: Routes = [
   // Todo revoir les nom des id
@@ -17,6 +18,8 @@ const myRoutes: Routes = [
     path: 'advisor/:advisorId/updateClient/:clientId',
     component: FormClientComponent,
   },
+  { path: 'not-found', component: NoFoundComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 export const ROUTING = RouterModule.forRoot(myRoutes);
