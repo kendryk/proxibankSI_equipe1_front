@@ -11,19 +11,22 @@ import { ListClientsConseillerService } from 'src/app/services/list-clients-cons
 export class ClientDetailComponent {
   @Input() clientSelected!: Client;
   advisorId: string | undefined;
-  
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOninit() {
     this.advisorId = this.route.snapshot.params['id'];
   }
-
+  goToClientAccounts(clientId: number) {
+    this.advisorId = this.route.snapshot.params['id'];
+    this.router.navigateByUrl(
+      `/advisor/${this.advisorId}/client/${clientId}/accounts`
+    );
+  }
   goToEditClient(clientId: number) {
     this.advisorId = this.route.snapshot.params['id'];
     this.router.navigateByUrl(
       `/advisor/${this.advisorId}/updateClient/${clientId}`
     );
   }
-
 }
