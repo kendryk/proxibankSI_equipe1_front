@@ -15,6 +15,8 @@ import { FormClientComponent } from './form-client/form-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ClientAccountsComponent } from './client-accounts/client-accounts.component';
+import { AuditComponent } from './audit/audit.component';
+
 
 
 
@@ -31,7 +33,7 @@ import { ClientAccountsComponent } from './client-accounts/client-accounts.compo
     FormClientComponent,
     HomeComponent,
     ClientAccountsComponent,
- 
+    AuditComponent,
 
   ],
   imports: [
