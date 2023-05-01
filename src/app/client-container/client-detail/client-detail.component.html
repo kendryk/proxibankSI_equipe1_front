@@ -12,10 +12,7 @@
     <div class="account-list">
       <h5 class="fw-bold fontColor mt-1 mb-0">Liste des Comptes</h5>
       <hr class="mt-0" />
-      <div
-        *ngFor="let account of clientSelected.accountList"
-        class="type-compte"
-      >
+      <div *ngFor="let account of clientSelected.accountList" class="type-compte">
         <p class="fs fw-bold mb-0">
           Compte {{ account.accountStatus | accountStatusTranslation }}:
         </p>
@@ -40,29 +37,14 @@
 
   <div class="d-flex align-items-center justify-content-between mb-2">
     <div class="col-6 d-flex align-items-center justify-content-around">
-      <button
-        (click)="goToClientAccounts(clientSelected.id)"
-        class="btn btn-success"
-      >
+      <button (click)="goToClientAccounts(clientSelected.id)" class="btn btn-success">
         Comptes
       </button>
-      <button
-        (click)="goToEditClient(clientSelected.id)"
-        class="btn btn-primary"
-      >
-        Edit
-      </button>
-    <div class="  d-flex align-items-center justify-content-between mb-2">
-      <div class=" col-6 d-flex align-items-center justify-content-around">
-        <button class="btn btn-success">Comptes</button>
-        <button (click)="goToEditClient(clientSelected.id)" class="btn btn-primary">Edit</button>
-      </div>
-      <div class="col-3">
-        <button (click)="deleteClientByID(clientSelected.id)" class="btn btn-danger">Delete</button>
-      </div>
+
+      <button (click)="goToEditClient(clientSelected.id)" class="btn btn-primary">Edit</button>
     </div>
     <div class="col-3">
-      <button class="btn btn-danger">Delete</button>
+      <button (click)="deleteClientByID(clientSelected.id)" class="btn btn-danger">Delete</button>
     </div>
   </div>
 </div>

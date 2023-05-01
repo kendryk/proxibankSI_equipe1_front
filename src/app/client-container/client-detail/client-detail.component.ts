@@ -21,14 +21,15 @@ export class ClientDetailComponent {
 
   ngOnInit() {
     this.advisorId = this.route.snapshot.params['id'];
-    console.log(this.advisorId);
   }
+
   goToClientAccounts(clientId: number) {
-    this.advisorId = this.route.snapshot.params['id'];
+    console.log(clientId);
     this.router.navigateByUrl(
-      `/advisor/${this.advisorId}/client/${clientId}/accounts`
+      `/advisor/${this.advisorId}/clients/${clientId}/accounts`
     );
   }
+
   goToEditClient(clientId: number) {
     this.router.navigateByUrl(
       `/advisor/${this.advisorId}/updateClient/${clientId}`
