@@ -10,7 +10,7 @@ const myRoutes: Routes = [
   { path: 'advisor/:id/clients', component: ClientContainerComponent },
   { path: 'advisor/:advisorId/newClient', component: FormClientComponent },
   {
-    path: 'advisor/:advisorId/client/:clientId/accounts',
+    path: 'advisor/:advisorId/clients/:clientId/accounts',
     component: ClientAccountsComponent,
   },
   {

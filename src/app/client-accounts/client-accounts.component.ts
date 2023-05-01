@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Account } from '../models/Account';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListClientsConseillerService } from '../services/list-clients-conseiller.service';
@@ -11,6 +11,7 @@ import { Client } from '../models/Client';
   styleUrls: ['./client-accounts.component.css'],
 })
 export class ClientAccountsComponent {
+  @Input() clientSelected!: Client;
   advisorId: string;
   clientId!: string;
   accounts: Account[];
@@ -19,7 +20,6 @@ export class ClientAccountsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private listClientsConseillerService: ListClientsConseillerService
   ) {}
 
@@ -28,9 +28,10 @@ export class ClientAccountsComponent {
     const clientId = this.route.snapshot.params['clientId'];
 
     this.subscription = this.listClientsConseillerService
-      .getAccountList(this.advisorId, this.clientId, 'accounts')
+      .getAccountList(advisorId, clientId, 'accounts')
       .subscribe((accounts: Account[]) => {
         this.accounts = accounts;
+        console.log(accounts);
       });
   }
 }
