@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class ClientContainerComponent {
   advisorId: string | undefined;
   selectedClient!: Client;
+  clientDeleted!: Client;
   advisor: Advisor | undefined;
   advisorSubscription!: Subscription;
 
@@ -23,6 +24,10 @@ export class ClientContainerComponent {
 
   getSelectedClient(client: Client) {
     this.selectedClient = client;
+  }
+
+  getdeleteClientFromDetail(client: Client) {
+    this.clientDeleted = client;
   }
 
   ngOnInit() {

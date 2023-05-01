@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { Client } from 'src/app/models/Client';
-import { ListClientsConseillerService } from 'src/app/services/list-clients-conseiller.service';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-client-detail',
@@ -10,20 +10,42 @@ import { ListClientsConseillerService } from 'src/app/services/list-clients-cons
 })
 export class ClientDetailComponent {
   @Input() clientSelected!: Client;
+  @Output() clientDeleted = new EventEmitter<Client>();
   advisorId: string | undefined;
-  
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private serviceClient: ClientService
+  ) {}
 
-  ngOninit() {
+  ngOnInit() {
     this.advisorId = this.route.snapshot.params['id'];
+    console.log(this.advisorId);
   }
 
   goToEditClient(clientId: number) {
-    this.advisorId = this.route.snapshot.params['id'];
     this.router.navigateByUrl(
       `/advisor/${this.advisorId}/updateClient/${clientId}`
     );
   }
 
+  deleteClientByID(clientId: number) {
+    if (confirm('Êtes-vous sûr de supprimer ce clients ?')) {
+      // Si l'utilisateur clique sur "OK", exécutez la méthode de suppression
+      this.serviceClient
+        .deleteClientById(this.advisorId, String(clientId))
+        .subscribe({
+          next: (client) => {
+            alert(
+              `Le client ${client.name}a été effacé de la base de données ?`
+            );
+            this.clientDeleted.emit(client);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+    }
+  }
 }
