@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Client } from '../models/Client';
 import { HttpClient } from '@angular/common/http';
+import { Account } from '../models/Account';
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +41,16 @@ export class ListClientsConseillerService {
     return this.http.put<Client>(
       `${this.link}/${advisorId}/updateClient/${clientId}`,
       newClient
+    );
+  }
+
+  getAccountList(
+    advisorId: string,
+    clientId: string,
+    accounts: string
+  ): Observable<Account[]> {
+    return this.http.get<Account[]>(
+      `${this.link}/${advisorId}/clients/${clientId}/${accounts}`
     );
   }
 }
