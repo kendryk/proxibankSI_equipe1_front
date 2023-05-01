@@ -14,6 +14,7 @@ import { AccountStatusTranslationPipe } from './pipes/account-status-translation
 import { FormClientComponent } from './form-client/form-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { ClientAccountsComponent } from './client-accounts/client-accounts.component';
 
 
 
@@ -29,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     AccountStatusTranslationPipe,
     FormClientComponent,
     HomeComponent,
+    ClientAccountsComponent,
  
 
   ],
