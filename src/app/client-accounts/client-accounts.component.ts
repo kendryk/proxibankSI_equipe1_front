@@ -24,9 +24,9 @@ export class ClientAccountsComponent {
   ) {}
 
   ngOnInit() {
-    const advisorId = this.route.snapshot.params['id'];
+    const advisorId = this.route.snapshot.params['advisorId'];
     const clientId = this.route.snapshot.params['clientId'];
-
+   
     this.subscription = this.listClientsConseillerService
       .getAccountList(advisorId, clientId, 'accounts')
       .subscribe((accounts: Account[]) => {
