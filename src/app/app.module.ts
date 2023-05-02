@@ -19,6 +19,7 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
 import { NoFoundComponent } from './no-found/no-found.component';
 import { AuditComponent } from './audit/audit.component';
 import { ClientSimulationComponent } from './client-simulation/client-simulation.component';
+import { RoundPipe } from './pipes/round.pipe';
 
 
 
@@ -40,6 +41,7 @@ import { ClientSimulationComponent } from './client-simulation/client-simulation
     NoFoundComponent,
     AuditComponent,
     ClientSimulationComponent,
+    RoundPipe,
 
   ],
   imports: [
