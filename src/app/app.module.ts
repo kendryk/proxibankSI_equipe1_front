@@ -18,6 +18,7 @@ import { ClientAccountsComponent } from './client-accounts/client-accounts.compo
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { NoFoundComponent } from './no-found/no-found.component';
 import { AuditComponent } from './audit/audit.component';
+import { VirementComponent } from './virement/virement.component';
 
 
 
@@ -38,6 +39,7 @@ import { AuditComponent } from './audit/audit.component';
     DateFormatPipe,
     NoFoundComponent,
     AuditComponent,
+    VirementComponent,
 
   ],
   imports: [
