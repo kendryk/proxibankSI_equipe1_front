@@ -24,6 +24,7 @@ export class ClientContainerComponent {
 
   getSelectedClient(client: Client) {
     this.selectedClient = client;
+    this.clientDeleted = null;
   }
 
   getdeleteClientFromDetail(client: Client) {

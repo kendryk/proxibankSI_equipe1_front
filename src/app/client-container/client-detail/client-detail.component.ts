@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { Client } from 'src/app/models/Client';
 import { ClientService } from 'src/app/services/client.service';
@@ -12,6 +18,7 @@ export class ClientDetailComponent {
   @Input() clientSelected!: Client;
   @Output() clientDeleted = new EventEmitter<Client>();
   advisorId: string | undefined;
+  totalBalance: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,8 +30,13 @@ export class ClientDetailComponent {
     this.advisorId = this.route.snapshot.params['id'];
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['clientSelected'] && changes['clientSelected'].currentValue) {
+      this.totalBalance = this.getTotalBalance();
+    }
+  }
+
   goToClientAccounts(clientId: number) {
-    console.log(clientId);
     this.router.navigateByUrl(
       `/advisor/${this.advisorId}/clients/${clientId}/accounts`
     );
@@ -53,5 +65,18 @@ export class ClientDetailComponent {
           },
         });
     }
+  }
+
+  /**
+   * Cette méthode calcule et renvoie le solde total de tous les comptes de l'utilisateur sélectionné.
+   * Elle utilise la méthode reduce() pour additionner tous les soldes de compte dans la liste de comptes de l'utilisateur.
+   * La valeur de retour est un nombre décimal représentant le solde total.
+   * @returns
+   */
+  getTotalBalance() {
+    return this.clientSelected.accountList.reduce(
+      (acc, curr) => acc + curr.balance,
+      0
+    );
   }
 }

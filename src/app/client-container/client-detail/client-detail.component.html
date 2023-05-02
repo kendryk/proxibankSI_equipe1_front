@@ -19,15 +19,15 @@
         <p class="acc-fs mb-0">
           <span class="fw-bold">Numéro de compte:</span> {{ account.number }}
         </p>
-        <p class="acc-fs">
-          <span class="fw-bold"> Solde:</span> {{ account.balance }}€
+        <p class="acc-fs" [ngStyle]="{'color': account.balance < 0 ? 'red' : 'inherit'}">
+          <span class="fw-bold">Solde:</span> {{ account.balance }}€
         </p>
       </div>
 
       <div class="summary">
         <p class="fw-bold fontColor mt-1 mb-0">Résume</p>
         <hr class="mt-0" />
-        <p><span class="fw-bold">Total Epargne:</span></p>
+        <p><span class="fw-bold">Total Epargne: {{ totalBalance }} €</span></p>
         <p><span class="fw-bold">Statut Carte Bancaire :</span> Active</p>
       </div>
     </div>

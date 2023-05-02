@@ -19,7 +19,7 @@
 <div class="col-md-2"></div>
     <div class="col-md-6 mb-2">
 
-      <div class="card card-box-shadow"*ngIf="selectedClient">
+      <div class="card card-box-shadow"*ngIf="selectedClient && !clientDeleted" >
         <div class="card-body"  >
           <app-client-detail 
            (clientDeleted)="getdeleteClientFromDetail($event)"
@@ -27,6 +27,7 @@
           ></app-client-detail>
         </div>
       </div>
+
     </div>
   </div>
 </div>
