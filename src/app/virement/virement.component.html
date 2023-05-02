@@ -30,7 +30,7 @@
             </form>
 
             <div *ngIf="senderAccount && beneficiaryAccount" class="alert alert-success mx-3" role="alert">
-                Validatation du Virement de {{ amount }}€ du compte {{ senderAccount }} vers le compte {{ beneficiaryAccount }}
+                Validation du Virement de {{ amount }}€ du compte {{ senderAccount }} vers le compte {{ beneficiaryAccount }}
             </div>
 
             <div *ngIf="errorMessage" class="alert alert-danger mx-3" role="alert">
@@ -76,5 +76,3 @@
         </div>
     </section>
 </div>
-
-<!-- max="{{ selectedAccount.balance }}" -->
