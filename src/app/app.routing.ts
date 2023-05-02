@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ClientAccountsComponent } from './client-accounts/client-accounts.component';
 import { NoFoundComponent } from './no-found/no-found.component';
 import { AuditComponent } from './audit/audit.component';
+import { ClientSimulationComponent } from './client-simulation/client-simulation.component';
 
 const myRoutes: Routes = [
   // Todo revoir les nom des id
@@ -18,6 +19,10 @@ const myRoutes: Routes = [
   {
     path: 'advisor/:advisorId/updateClient/:clientId',
     component: FormClientComponent,
+  },
+  {
+    path: 'simulation',
+    component: ClientSimulationComponent,
   },
   {
     path: 'audit',
