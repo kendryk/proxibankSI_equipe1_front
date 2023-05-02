@@ -20,6 +20,7 @@ import { NoFoundComponent } from './no-found/no-found.component';
 import { AuditComponent } from './audit/audit.component';
 import { ClientSimulationComponent } from './client-simulation/client-simulation.component';
 import { RoundPipe } from './pipes/round.pipe';
+import { VirementComponent } from './virement/virement.component';
 
 
 
@@ -42,6 +43,7 @@ import { RoundPipe } from './pipes/round.pipe';
     AuditComponent,
     ClientSimulationComponent,
     RoundPipe,
+    VirementComponent,
 
   ],
   imports: [

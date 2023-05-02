@@ -78,7 +78,6 @@ export class FormClientComponent {
         next: (result: Client) => {
           // Vérifie si le client existe déjà ou non, en fonction de quoi isEditing est mis à jour
           result !== undefined ? (this.isEditing = true) : null;
-          console.log(result);
           // Remplit le formulaire avec les données du client récupérées
           this.clientForm.patchValue(result);
         },

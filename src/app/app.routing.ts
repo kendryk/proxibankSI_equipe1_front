@@ -6,6 +6,7 @@ import { ClientAccountsComponent } from './client-accounts/client-accounts.compo
 import { NoFoundComponent } from './no-found/no-found.component';
 import { AuditComponent } from './audit/audit.component';
 import { ClientSimulationComponent } from './client-simulation/client-simulation.component';
+import { VirementComponent } from './virement/virement.component';
 
 const myRoutes: Routes = [
   // Todo revoir les nom des id
@@ -15,6 +16,14 @@ const myRoutes: Routes = [
   {
     path: 'advisor/:advisorId/clients/:clientId/accounts',
     component: ClientAccountsComponent,
+  },
+  {
+    path: 'advisor/:advisorId/virement',
+    component: VirementComponent,
+  },
+  {
+    path: 'advisor/:advisorId/virement/clients/:clientId',
+    component: VirementComponent,
   },
   {
     path: 'advisor/:advisorId/updateClient/:clientId',
