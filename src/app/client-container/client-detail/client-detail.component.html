@@ -19,8 +19,8 @@
         <p class="acc-fs mb-0">
           <span class="fw-bold">Numéro de compte:</span> {{ account.number }}
         </p>
-        <p class="acc-fs">
-          <span class="fw-bold"> Solde:</span> {{ account.balance }}€
+        <p class="acc-fs" [ngStyle]="{'color': account.balance < 0 ? 'red' : 'inherit'}">
+          <span class="fw-bold">Solde:</span> {{ account.balance }}€
         </p>
       </div>
 
