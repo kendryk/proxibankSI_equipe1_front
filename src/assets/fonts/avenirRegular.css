@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Avenir';
+    src: url('./AvenirRegular.ttf') ;
+  }
+  
+  body {
+    font-family: 'Avenir', sans-serif;
+    background-color: #00bc7714;
+    
+  }
+  header {
+    background-color: #fff;
+  }

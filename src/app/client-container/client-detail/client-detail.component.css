@@ -1,0 +1,18 @@
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  outline: 0 !important;
+
+}
+
+hr{
+  border: 1px solid #00bc77;
+}
+
+.fontColor{
+  color: #00bc77;
+}
+.acc-fs{
+  font-size: 14px;
+}

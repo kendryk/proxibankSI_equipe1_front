@@ -1,0 +1,27 @@
+<h1>Audit des comptes débiteur de plus de 5000 € </h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Numéro de compte</th>
+            <th>Type de compte</th>
+            <th>Découvert autorisé</th>
+            <th>Solde</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="audit.length > 0; else noData">
+            <tr *ngFor="let account of audit">
+                <td>{{ account.number }}</td>
+                <td>Compte {{ account.accountStatus | accountStatusTranslation }}</td>
+                <td>{{ account.overdraft }} €</td>
+                <td>{{ account.balance }} €</td>
+            </tr>
+        </ng-container>
+        <ng-template #noData>
+            <tr>
+                <td colspan="4">Aucun audit disponible.</td>
+            </tr>
+        </ng-template>
+    </tbody>
+</table>

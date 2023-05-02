@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div class="col-8 mx-auto">
+    <h4>Simulation de Crédit</h4>
+    <div
+      class="card d-flex flex-row align-items-start justify-content-around flex-wrap p-4"
+    >
+      <div class="d-flex flex-column col-sm-12 col-lg-4">
+        <form (submit)="calculMensualite()" #creditForm="ngForm">
+          <label for="creditAmount">Montant du crédit</label>
+          <input
+            class="form-control"
+            type="text"
+            name="amount"
+            placeholder="montant..."
+            [(ngModel)]="amount"
+            required
+          />
+
+          <label for="creditRate">Taux</label>
+          <input
+            class="form-control"
+            type="text"
+            name="rate"
+            placeholder="taux..."
+            [(ngModel)]="rate"
+            required
+          />
+
+          <label for="creditDuration">Durée (en mois)</label>
+          <input
+            class="form-control"
+            type="text"
+            name="duration "
+            placeholder="durée..."
+            [(ngModel)]="duration"
+            required
+          />
+
+          <button type="submit" class="validation btn btn-success my-4">
+            Valider
+          </button>
+        </form>
+      </div>
+      <div class="col-sm-12 col-lg-4">
+        <div
+          *ngIf="amountBeforeReset && rateBeforeReset && durationBeforeReset"
+        >
+          <div class="details">
+            <p>Montant: {{ amountBeforeReset }} €</p>
+            <p>Taux: {{ rateBeforeReset }} %</p>
+            <p>Durée: {{ durationBeforeReset }} mois</p>
+            <p>Mensualité: {{ monthlyPaymentBeforeReset | round }} €</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="card-container">
+  <div class="main">
+    <h3 class="fw-bold bgGreen mb-1" style="font-size: 30px">
+      {{ clientSelected.name }} {{ clientSelected.firstName }}
+    </h3>
+    <p class="acc-fs mt-2 mb-0">
+      {{ clientSelected.adress }} {{ clientSelected.zipCode }}
+      {{ clientSelected.city }}
+    </p>
+    <p class="acc-fs">{{ clientSelected.phone }}</p>
+
+    <div class="account-list">
+      <h5 class="fw-bold fontColor mt-1 mb-0">Liste des Comptes</h5>
+      <hr class="mt-0" />
+      <div *ngFor="let account of clientSelected.accountList" class="type-compte">
+        <p class="fs fw-bold mb-0">
+          Compte {{ account.accountStatus | accountStatusTranslation }}:
+        </p>
+        <p class="acc-fs mb-0">
+          <span class="fw-bold">Numéro de compte:</span> {{ account.number }}
+        </p>
+        <p class="acc-fs" [ngStyle]="{'color': account.balance < 0 ? 'red' : 'inherit'}">
+          <span class="fw-bold">Solde:</span> {{ account.balance }}€
+        </p>
+      </div>
+
+      <div class="summary">
+        <p class="fw-bold fontColor mt-1 mb-0">Résume</p>
+        <hr class="mt-0" />
+        <p><span class="fw-bold">Total Epargne: {{ totalBalance }} €</span></p>
+        <p><span class="fw-bold">Statut Carte Bancaire :</span> Active</p>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <div class="col-6 d-flex align-items-center justify-content-around">
+      <button (click)="goToClientAccounts(clientSelected.id)" class="btn btn-success">
+        Comptes
+      </button>
+
+      <button (click)="goToEditClient(clientSelected.id)" class="btn btn-primary">Edit</button>
+    </div>
+    <div class="col-3">
+      <button (click)="deleteClientByID(clientSelected.id)" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>

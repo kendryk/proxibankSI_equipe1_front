@@ -1,0 +1,61 @@
+<h3>
+  Liste de comptes de Mr {{ selectedClient.name }}
+  {{ selectedClient.firstName }}
+</h3>
+<main class="container main-container px-0">
+  <section class="transfert-section d-flex justify-content-between">
+    <div class="table-container">
+      <table class="table table-bordered my-2">
+        <thead class="thead bgGreen">
+          <tr>
+            <th scope="col">Comptes</th>
+            <th scope="col">Numéro de Compte</th>
+            <th scope="col">Date de Création</th>
+            <th scope="col">Solde</th>
+            <th scope="col">Découvert Autorisé</th>
+            <th scope="col">Taux d'Interêt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let account of accounts"
+            [ngClass]="{
+              'current-account': account.accountStatus === 'current',
+              'saving-account': account.accountStatus === 'saving'
+            }"
+          >
+            <th scope="row">
+              Compte {{ account.accountStatus | accountStatusTranslation }}
+            </th>
+            <td class="text-center">{{ account.number }}</td>
+            <td class="text-center">{{ account.created | dateFormat }}</td>
+            <td class="text-center">{{ account.balance }}€</td>
+            <td class="text-center">
+              {{ account.overdraft ? account.overdraft + "€" : "" }}
+            </td>
+            <td class="text-center">
+              {{ account.rate ? account.rate + "%" : "" }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button
+      (click)="goToVirementClient(clientId)"
+      class="btn btn-success rounded col-2 h-50 d-flex align-items-center justify-content-center"
+    >
+      Virement
+    </button>
+  </section>
+  <div class="btn-container">
+    <button
+      (click)="showSimulationComponent = true"
+      class="btn btn-success rounded col-3 my-5"
+    >
+      Simulation de Crédit
+    </button>
+    <app-client-simulation
+      *ngIf="showSimulationComponent"
+    ></app-client-simulation>
+  </div>
+</main>

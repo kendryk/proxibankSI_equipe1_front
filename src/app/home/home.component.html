@@ -1,0 +1,16 @@
+<div class="container mt-3">
+    <h1>Bienvenue {{advisor.name}} {{advisor.firstname}} sur l'application ProxiBanque</h1>
+
+
+    <!-- TODO recuperer l employee pour verifier si il est USER (Advisor) ou Manager(ADMIN) -->
+    <ng-container *ngIf="advisor.role === 'USER' else admin">
+        <p>Vous êtes connecté en tant que conseiller.</p>
+    </ng-container>
+
+    <ng-template #admin>
+        <p>Vous êtes connecté en tant que manager.</p>
+    </ng-template>
+
+
+    <p>Utilisez les liens de la barre de navigation pour accéder aux différentes fonctionnalités de l'application.</p>
+</div>
