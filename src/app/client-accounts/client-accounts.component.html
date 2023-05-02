@@ -41,7 +41,8 @@
       </table>
     </div>
     <button
-      class="btn-trft bgGreen rounded col-2 h-50 d-flex align-items-center justify-content-center"
+      (click)="goToVirementClient(clientId)"
+      class="btn btn-success rounded col-2 h-50 d-flex align-items-center justify-content-center"
     >
       Virement
     </button>
@@ -49,7 +50,7 @@
   <div class="btn-container">
     <button
       (click)="showSimulationComponent = true"
-      class="btn-trft bgGreen rounded col-3 my-5"
+      class="btn btn-success rounded col-3 my-5"
     >
       Simulation de Crédit
     </button>

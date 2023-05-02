@@ -21,26 +21,31 @@ export class ClientAccountsComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private listClientsConseillerService: ListClientsConseillerService
   ) {}
 
   ngOnInit() {
-    const advisorId = this.route.snapshot.params['advisorId'];
-    const clientId = this.route.snapshot.params['clientId'];
+    this.advisorId = this.route.snapshot.params['advisorId'];
+    this.clientId = this.route.snapshot.params['clientId'];
 
     this.subscription = this.listClientsConseillerService
-      .getAccountList(advisorId, clientId, 'accounts')
+      .getAccountList(this.advisorId, this.clientId, 'accounts')
       .subscribe((accounts: Account[]) => {
         this.accounts = accounts;
-        console.log(accounts);
       });
 
     this.subscription = this.listClientsConseillerService
-      .getClientByIdByAdvisorId(clientId, advisorId)
+      .getClientByIdByAdvisorId(this.clientId, this.advisorId)
       .subscribe((client: Client) => {
         this.selectedClient = client;
         this.accounts = client.accountList;
-        console.log(client);
       });
+  }
+
+  goToVirementClient(clientId: string) {
+    this.router.navigateByUrl(
+      `/advisor/${this.advisorId}/virement/clients/${clientId}`
+    );
   }
 }
