@@ -1,14 +1,46 @@
 <div class="container d-flex justify-content-center align-items-center">
   <div class="card col-8">
     <h4>Simulation de Crédit</h4>
-    <div class="form-container d-flex flex-column col-4">
-      <label for="">Montant du crédit</label>
-      <input type="text" placeholder="montant..." />
-      <label for="">Taux</label>
-      <input type="text" placeholder="taux..." />
-      <label for="">Durée</label>
-      <input type="text" placeholder="durée..." />
-      <button class="validation bgGreen">Valider</button>
+    <form
+      class="form-container d-flex flex-column col-4"
+      (submit)="calculMensualite()"
+      #creditForm="ngForm"
+    >
+      <label for="creditAmount">Montant du crédit</label>
+      <input
+        type="text"
+        id="creditAmount"
+        name="amount"
+        placeholder="montant..."
+        [(ngModel)]="amount"
+        required
+      />
+      <label for="creditRate">Taux</label>
+      <input
+        type="text"
+        id="creditRate"
+        name="rate"
+        placeholder="taux..."
+        [(ngModel)]="rate"
+        required
+      />
+      <label for="creditDuration">Durée (en mois)</label>
+      <input
+        type="text"
+        id="creditDuration"
+        name="duration "
+        placeholder="durée..."
+        [(ngModel)]="duration"
+        required
+      />
+      <button type="submit" class="validation bgGreen">Valider</button>
+    </form>
+
+    <div *ngIf="amountBeforeReset && rateBeforeReset && durationBeforeReset">
+      <p>Montant: {{ amountBeforeReset }} €</p>
+      <p>Taux: {{ rateBeforeReset }} %</p>
+      <p>Durée: {{ durationBeforeReset }} mois</p>
+      <p>Mensualité: {{ monthlyPaymentBeforeReset }} €</p>
     </div>
   </div>
 </div>
