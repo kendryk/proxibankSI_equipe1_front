@@ -27,7 +27,14 @@
 }
 .btn-trft {
   border: none;
+  border-radius: 5px;
 }
 .main-container {
   height: 600px;
+}
+.details {
+  border: 0px solid #00bc77;
+  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5),
+    5px 5px 10px 0px rgb(0, 188, 119, 0.3);
+  padding: 16px;
 }
