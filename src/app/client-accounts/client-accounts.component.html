@@ -47,8 +47,14 @@
     </button>
   </section>
   <div class="btn-container">
-    <button class="btn-trft bgGreen rounded col-3 my-5">
-      Faire une Simulation
+    <button
+      (click)="showSimulationComponent = true"
+      class="btn-trft bgGreen rounded col-3 my-5"
+    >
+      Simulation de Crédit
     </button>
+    <app-client-simulation
+      *ngIf="showSimulationComponent"
+    ></app-client-simulation>
   </div>
 </main>
