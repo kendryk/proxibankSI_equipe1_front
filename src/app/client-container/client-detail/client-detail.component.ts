@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { Client } from 'src/app/models/Client';
 import { ClientService } from 'src/app/services/client.service';
@@ -22,7 +28,12 @@ export class ClientDetailComponent {
 
   ngOnInit() {
     this.advisorId = this.route.snapshot.params['id'];
-    this.totalBalance = this.getTotalBalance();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['clientSelected'] && changes['clientSelected'].currentValue) {
+      this.totalBalance = this.getTotalBalance();
+    }
   }
 
   goToClientAccounts(clientId: number) {
